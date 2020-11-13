@@ -74,10 +74,18 @@ export default {
 
 $body2: map-get($headings, "body-2");
 
-.v-list-item__title {
-  white-space: initial;
-  text-overflow: initial;
-  font-size: #{map-get($body2, "size")};
+.v-list-item {
+  align-items: flex-start;
+
+  &__title {
+    white-space: initial;
+    text-overflow: initial;
+    font-size: #{map-get($body2, "size")};
+  }
+
+  &__content {
+    align-self: flex-start;
+  }
 }
 
 @media #{map-get($display-breakpoints, 'md-and-down')} {
