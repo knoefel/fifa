@@ -11,6 +11,14 @@ class FunctionalAreasService {
     }
   }
 
+  async getById(id) {
+    try {
+      return await this._getById(id);
+    } catch {
+      console.error("Error while fetching Functional Area");
+    }
+  }
+
   async delete(id) {
     try {
       return await this._delete(id);
@@ -24,6 +32,12 @@ class FunctionalAreasService {
    */
   async _getAll() {
     return new Promise((resolve) => resolve(this.functionalAreas));
+  }
+
+  async _getById(id) {
+    return new Promise((resolve) =>
+      resolve(this.functionalAreas.find(({ id: faId }) => faId === Number(id)))
+    );
   }
 
   async _delete(id) {

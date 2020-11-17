@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="functional-areas">
     <v-container>
       <v-card class="my-5">
         <v-row no-gutters class="pa-5" align="center">
@@ -43,7 +43,7 @@ import FunctionalAreasTable from "@/components/FunctionalAreasTable/FunctionalAr
 
 export default {
   components: { FunctionalAreasTable },
-  name: "Home",
+  name: "FunctionalAreas",
   data: () => ({
     functionalAreas: [],
     search: "",
@@ -59,11 +59,12 @@ export default {
     },
 
     onEditItem(item) {
-      console.log(item)
+      this.$router.push({ path: `/functional-areas/${item.id}` });
     },
+
     async onDeleteItem(item) {
       await functionalAreasService.delete(item.id);
-      
+
       this.refreshItems();
     },
   },

@@ -1,33 +1,31 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import FunctionalAreas from '../views/FunctionalAreas'
+import Vue from "vue";
+import VueRouter from "vue-router";
+import FunctionalAreas from "../views/FunctionalAreas";
+import FunctionalArea from "../views/FunctionalArea";
 
-Vue.use(VueRouter)
+Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/',
-    redirect: '/functional-areas'
+    path: "/",
+    redirect: "/functional-areas",
   },
   {
-    path: '/functional-areas',
-    name: 'FunctionalAreas',
-    component: FunctionalAreas
+    path: "/functional-areas",
+    name: "FunctionalAreas",
+    component: FunctionalAreas,
   },
   {
-    path: '/about',
-    name: 'About',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
-]
+    path: "/functional-areas/:id",
+    name: "FunctionalArea",
+    component: FunctionalArea,
+  },
+];
 
 const router = new VueRouter({
-  mode: 'history',
+  mode: "history",
   base: process.env.BASE_URL,
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
