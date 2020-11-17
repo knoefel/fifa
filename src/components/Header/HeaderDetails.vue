@@ -1,5 +1,5 @@
 <template>
-  <v-container class="header-details pa-2" fluid>
+  <v-container class="header-details pa-2 grey lighten-3" fluid>
     <v-row no-gutters>
       <v-col>
         <Countdown :end="tournament.start" />
@@ -35,6 +35,5 @@ export default {
 <style lang="scss" scoped>
   .header-details {
     height: 100%;
-    background-color: #EEEEEE;
   }
 </style>
