@@ -2,6 +2,7 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import FunctionalAreas from "../views/FunctionalAreas";
 import FunctionalArea from "../views/FunctionalArea";
+import AddFunctionalArea from "../views/AddFunctionalArea";
 
 Vue.use(VueRouter);
 
@@ -14,6 +15,11 @@ const routes = [
     path: "/functional-areas",
     name: "FunctionalAreas",
     component: FunctionalAreas,
+  },
+  {
+    path: "/functional-areas/add",
+    name: "AddFunctionalArea",
+    component: AddFunctionalArea,
   },
   {
     path: "/functional-areas/:id",

@@ -41,20 +41,24 @@ import {
   functionalAreaTypes,
   functionalAreaParentEvents,
 } from "@/mocks/functionalAreas";
-import { complement, isEmpty } from "ramda";
 
-const isNotEmpty = complement(isEmpty);
+const defaultValues = {
+  name: "",
+  typeId: "",
+  refNumber: "",
+  parentEventIds: [],
+};
 
 export default {
   name: "FunctionalAreaForm",
   data: () => ({
     functionalAreaTypes,
     functionalAreaParentEvents,
-    formValues: {},
+    formValues: defaultValues,
     isValid: false,
-    rules: { required: isNotEmpty },
+    rules: { required: (value) => !!value || "Required" },
   }),
-  props: { functionalArea: { type: Object } },
+  props: { functionalArea: { type: Object, default: () => defaultValues } },
   watch: {
     formValues: {
       immediate: true,

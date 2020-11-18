@@ -19,11 +19,19 @@ class FunctionalAreasService {
     }
   }
 
+  async create(functionalAreaInput) {
+    try {
+      return await this._create(functionalAreaInput);
+    } catch {
+      console.error("Error while creating Functional Area");
+    }
+  }
+
   async update(functionalArea) {
     try {
       return await this._update(functionalArea);
     } catch {
-      console.error("Error while fetching Functional Area");
+      console.error("Error while updating Functional Area");
     }
   }
 
@@ -46,6 +54,22 @@ class FunctionalAreasService {
     return new Promise((resolve) =>
       resolve(this.functionalAreas.find(({ id: faId }) => faId === Number(id)))
     );
+  }
+
+  async _create(functionalAreaInput) {
+    return new Promise((resolve) => {
+      const ids = this.functionalAreas.map(({ id }) => id);
+      const maxId = Math.max(...ids);
+
+      const newFunctionalArea = {
+        id: maxId + 1,
+        ...functionalAreaInput,
+      };
+
+      this.functionalAreas = [...this.functionalAreas, newFunctionalArea];
+
+      resolve(newFunctionalArea);
+    });
   }
 
   async _update(updatedFunctionalArea) {

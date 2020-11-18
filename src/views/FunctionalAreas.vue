@@ -10,7 +10,7 @@
               Functional Areas
             </h3>
           </v-col>
-          <v-col cols="12" md="6" class="d-flex flex-wrap flex-sm-nowrap">
+          <v-col cols="12" md="6" class="d-flex flex-wrap flex-sm-nowrap flex-column flex-sm-row">
             <v-text-field
               v-model="search"
               prepend-inner-icon="mdi-magnify"
@@ -21,7 +21,7 @@
               dense
               class="pr-sm-3 pb-3 pb-sm-0"
             ></v-text-field>
-            <v-btn class="create-btn" color="primary"> Create </v-btn>
+            <v-btn class="create-btn" color="primary" to="/functional-areas/add" exact> Create </v-btn>
           </v-col>
         </v-row>
       </v-card>
@@ -76,11 +76,5 @@ export default {
 
 .create-btn {
   min-height: 40px;
-}
-
-@media #{map-get($display-breakpoints, 'xs-only')} {
-  .create-btn {
-    min-width: 100% !important;
-  }
 }
 </style>
