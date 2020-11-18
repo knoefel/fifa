@@ -49,8 +49,8 @@ export default {
       intervalToDuration,
       pick(["years", "months", "days", "hours"]),
       map(toString),
-      map((value) => value.padStart(2, "0")),
-      toPairs
+      map(value => value.padStart(2, "0")),
+      toPairs,
     ),
     updateDuration() {
       this.duration = this.calculateDuration({

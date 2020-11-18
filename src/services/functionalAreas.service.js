@@ -47,17 +47,15 @@ class FunctionalAreasService {
    * Faking API calls
    */
   async _getAll() {
-    return new Promise((resolve) => resolve(this.functionalAreas));
+    return new Promise(resolve => resolve(this.functionalAreas));
   }
 
   async _getById(id) {
-    return new Promise((resolve) =>
-      resolve(this.functionalAreas.find(({ id: faId }) => faId === Number(id)))
-    );
+    return new Promise(resolve => resolve(this.functionalAreas.find(({ id: faId }) => faId === Number(id))));
   }
 
   async _create(functionalAreaInput) {
-    return new Promise((resolve) => {
+    return new Promise(resolve => {
       const ids = this.functionalAreas.map(({ id }) => id);
       const maxId = Math.max(...ids);
 
@@ -73,11 +71,9 @@ class FunctionalAreasService {
   }
 
   async _update(updatedFunctionalArea) {
-    return new Promise((resolve) => {
-      this.functionalAreas = this.functionalAreas.map((functionalArea) =>
-        functionalArea.id === updatedFunctionalArea.id
-          ? updatedFunctionalArea
-          : functionalArea
+    return new Promise(resolve => {
+      this.functionalAreas = this.functionalAreas.map(functionalArea =>
+        functionalArea.id === updatedFunctionalArea.id ? updatedFunctionalArea : functionalArea,
       );
 
       resolve(updatedFunctionalArea);
@@ -85,10 +81,8 @@ class FunctionalAreasService {
   }
 
   async _delete(id) {
-    return new Promise((resolve) => {
-      this.functionalAreas = this.functionalAreas.filter(
-        ({ id: faId }) => faId !== id
-      );
+    return new Promise(resolve => {
+      this.functionalAreas = this.functionalAreas.filter(({ id: faId }) => faId !== id);
 
       return resolve(true);
     });

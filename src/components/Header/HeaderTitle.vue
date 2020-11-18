@@ -22,8 +22,8 @@ export default {
       type: String,
     },
     trophy: {
-        type: String
-    }
+      type: String,
+    },
   },
   computed: {
     containerStyles: () => ({

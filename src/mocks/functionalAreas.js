@@ -4,42 +4,42 @@ export const functionalAreas = [
     refNumber: "12",
     name: "FA Service Provider",
     typeId: 1,
-    parentEventIds: [1,6]
+    parentEventIds: [1, 6],
   },
   {
     id: 2,
     refNumber: "14",
     name: "Functional Area Owner Test",
     typeId: 2,
-    parentEventIds: [3,6]
+    parentEventIds: [3, 6],
   },
   {
     id: 3,
     refNumber: "2.10",
     name: "Media",
     typeId: 1,
-    parentEventIds: [2,7]
+    parentEventIds: [2, 7],
   },
   {
     id: 4,
     refNumber: "2.11",
     name: "New Functional Area",
     typeId: 3,
-    parentEventIds: [1,5]
+    parentEventIds: [1, 5],
   },
   {
     id: 5,
     refNumber: "3.11",
     name: "Stadium Management",
     typeId: 3,
-    parentEventIds: [4,6]
+    parentEventIds: [4, 6],
   },
   {
     id: 6,
     refNumber: "2.1",
     name: "Test Functional Area",
     typeId: 2,
-    parentEventIds: [5,6]
+    parentEventIds: [5, 6],
   },
 ];
 
@@ -52,7 +52,7 @@ export const functionalAreaTypes = [
 export const functionalAreaParentEvents = [
   {
     header: "Group 1",
-    divider: true
+    divider: true,
   },
   {
     text: "Event 1 (Group 1)",

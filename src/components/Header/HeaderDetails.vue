@@ -22,7 +22,7 @@ export default {
   name: "HeaderDetails",
   components: {
     Countdown,
-    TournamentInfo
+    TournamentInfo,
   },
   props: {
     tournament: {
@@ -33,7 +33,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-  .header-details {
-    height: 100%;
-  }
+.header-details {
+  height: 100%;
+}
 </style>

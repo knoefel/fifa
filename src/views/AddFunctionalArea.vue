@@ -4,23 +4,12 @@
       <v-card class="my-5">
         <v-row no-gutters class="pa-5" align="center">
           <v-col class="pb-3 pb-md-0" cols="12" md="6">
-            <h3
-              class="font-weight-regular text-h5 table-title text-center text-md-left"
-            >
+            <h3 class="font-weight-regular text-h5 table-title text-center text-md-left">
               Add Functional Area
             </h3>
           </v-col>
-          <v-col
-            cols="12"
-            md="6"
-            class="d-flex flex-wrap flex-column flex-md-nowrap flex-md-row justify-end"
-          >
-            <v-btn
-              class="mr-md-3 mb-3 mb-md-0"
-              outlined
-              @click="onCancel"
-              color="primary"
-            >
+          <v-col cols="12" md="6" class="d-flex flex-wrap flex-column flex-md-nowrap flex-md-row justify-end">
+            <v-btn class="mr-md-3 mb-3 mb-md-0" outlined @click="onCancel" color="primary">
               Cancel
             </v-btn>
             <v-btn :disabled="!isValid" @click="onSave" color="primary">

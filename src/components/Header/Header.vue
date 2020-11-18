@@ -9,7 +9,7 @@
     </v-col>
   </v-row>
 </template>
- 
+
 <script>
 import HeaderTitle from "./HeaderTitle";
 import HeaderDetails from "./HeaderDetails";

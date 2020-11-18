@@ -1,16 +1,7 @@
 <template>
-  <v-data-table
-    :headers="headers"
-    :items="functionalAreas"
-    :search="search"
-    class="elevation-1"
-  >
+  <v-data-table :headers="headers" :items="functionalAreas" :search="search" class="elevation-1">
     <template v-slot:top>
-      <DeleteDialog
-        :open="showDeleteDialog"
-        @closed="onClosed"
-        @confirmed="onConfirmed"
-      />
+      <DeleteDialog :open="showDeleteDialog" @closed="onClosed" @confirmed="onConfirmed" />
     </template>
     <template v-slot:[`item.type`]="{ item }">
       <span>{{ getTypeName(item.typeId) }}</span>

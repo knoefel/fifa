@@ -5,8 +5,7 @@
         <v-list-item-content>
           <v-list-item-title>Tournament dates</v-list-item-title>
           <v-list-item-subtitle
-            >{{ formatDate(tournament.start) }} -
-            {{ formatDate(tournament.end) }}</v-list-item-subtitle
+            >{{ formatDate(tournament.start) }} - {{ formatDate(tournament.end) }}</v-list-item-subtitle
           >
         </v-list-item-content>
       </v-list-item>
@@ -14,27 +13,19 @@
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title>Number of teams</v-list-item-title>
-          <v-list-item-subtitle>{{
-            tournament.numberOfTeams
-          }}</v-list-item-subtitle>
+          <v-list-item-subtitle>{{ tournament.numberOfTeams }}</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title>Number of stadiums</v-list-item-title>
-          <v-list-item-subtitle>{{
-            tournament.numberOfStadiums
-          }}</v-list-item-subtitle>
+          <v-list-item-subtitle>{{ tournament.numberOfStadiums }}</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
       <v-list-item>
         <v-list-item-content>
-          <v-list-item-title
-            >Current champion of the tournament</v-list-item-title
-          >
-          <v-list-item-subtitle>{{
-            tournament.currentChampion
-          }}</v-list-item-subtitle>
+          <v-list-item-title>Current champion of the tournament</v-list-item-title>
+          <v-list-item-subtitle>{{ tournament.currentChampion }}</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
     </v-list>
@@ -56,10 +47,7 @@ export default {
   },
   computed: {
     i18nDate() {
-      return formatWithOptions(
-        { locale: LOCALES[this.$vuetify.lang.current] },
-        "P"
-      );
+      return formatWithOptions({ locale: LOCALES[this.$vuetify.lang.current] }, "P");
     },
   },
   methods: {

@@ -4,9 +4,7 @@
       <v-card class="my-5">
         <v-row no-gutters class="pa-5" align="center">
           <v-col class="pb-3 pb-md-0" cols="12" md="6">
-            <h3
-              class="font-weight-regular text-h5 table-title text-center text-sm-left"
-            >
+            <h3 class="font-weight-regular text-h5 table-title text-center text-sm-left">
               Functional Areas
             </h3>
           </v-col>

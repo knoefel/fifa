@@ -1,11 +1,6 @@
 <template>
   <v-form ref="form" v-model="isValid">
-    <v-text-field
-      v-model="formValues.name"
-      label="Name"
-      :rules="[rules.required]"
-      outlined
-    ></v-text-field>
+    <v-text-field v-model="formValues.name" label="Name" :rules="[rules.required]" outlined></v-text-field>
 
     <v-select
       v-model="formValues.typeId"
@@ -37,10 +32,7 @@
 </template>
 
 <script>
-import {
-  functionalAreaTypes,
-  functionalAreaParentEvents,
-} from "@/mocks/functionalAreas";
+import { functionalAreaTypes, functionalAreaParentEvents } from "@/mocks/functionalAreas";
 
 const defaultValues = {
   name: "",
@@ -56,7 +48,7 @@ export default {
     functionalAreaParentEvents,
     formValues: defaultValues,
     isValid: false,
-    rules: { required: (value) => !!value || "Required" },
+    rules: { required: value => !!value || "Required" },
   }),
   props: { functionalArea: { type: Object, default: () => defaultValues } },
   watch: {
