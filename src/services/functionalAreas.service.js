@@ -19,6 +19,14 @@ class FunctionalAreasService {
     }
   }
 
+  async update(functionalArea) {
+    try {
+      return await this._update(functionalArea);
+    } catch {
+      console.error("Error while fetching Functional Area");
+    }
+  }
+
   async delete(id) {
     try {
       return await this._delete(id);
@@ -38,6 +46,18 @@ class FunctionalAreasService {
     return new Promise((resolve) =>
       resolve(this.functionalAreas.find(({ id: faId }) => faId === Number(id)))
     );
+  }
+
+  async _update(updatedFunctionalArea) {
+    return new Promise((resolve) => {
+      this.functionalAreas = this.functionalAreas.map((functionalArea) =>
+        functionalArea.id === updatedFunctionalArea.id
+          ? updatedFunctionalArea
+          : functionalArea
+      );
+
+      resolve(updatedFunctionalArea);
+    });
   }
 
   async _delete(id) {

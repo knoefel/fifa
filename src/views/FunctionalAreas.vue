@@ -25,7 +25,7 @@
           </v-col>
         </v-row>
       </v-card>
-      <v-card>
+      <v-card class="mb-5">
         <FunctionalAreasTable
           :functionalAreas="functionalAreas"
           :search="search"
