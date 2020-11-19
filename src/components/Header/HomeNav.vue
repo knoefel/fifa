@@ -1,10 +1,10 @@
 <template>
   <v-container class="header-details white--text grey lighten-3" fluid>
     <v-row no-gutters>
-      <v-col class="col-1">
+      <v-col cols="2" xl="1">
         <v-img class="trophy" :src="require(`@/assets/trophies/trophy.svg`)"></v-img>
       </v-col>
-      <v-col class="col-11">
+      <v-col cols="10" xl="11">
         <v-row class="text-h5 font-weight-bold">
           <span>{{ tournament.title }}</span>
         </v-row>

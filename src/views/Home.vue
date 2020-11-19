@@ -3,12 +3,12 @@
     <HomeNav :tournament="tournament" />
     <v-container class="home-container">
       <v-row>
-        <v-col cols="12" xl="6" class="white--text text-h1 font-weight-bold tournament-title">
+        <v-col cols="12" lg="8" xl="6" class="justify-center white--text text-h1 font-weight-bold tournament-title">
           <span>{{ tournament.title }}</span>
         </v-col>
       </v-row>
-      <v-row>
-        <v-col cols="12" lg="2" xl="6">
+      <v-row class="tournament-info-row">
+        <v-col cols="12" lg="2" xl="6" class="pa-0">
           <v-btn to="/functional-areas" class="button-link">
             <span>See more </span>
             <v-img :src="require(`@/assets/icons/arrow-right.svg`)"></v-img>
@@ -42,13 +42,16 @@ export default {
   background-image: url("../assets/background.jpg");
   background-position: center;
   background-size: cover;
+  max-width: 100%;
 }
 
 .home-container {
   overflow: hidden;
-  padding: 0;
+  padding-right: 32px;
+  padding-left: 32px;
   margin-right: 0;
   height: 100%;
+  max-width: 100%;
 }
 
 .tournament-title {
@@ -104,13 +107,25 @@ export default {
   }
 }
 
-@media #{map-get($display-breakpoints, 'xs-only')} {
+@media #{map-get($display-breakpoints, 'xl-only')} {
+  .home-container {
+    padding-left: 64px;
+    padding-right: 64px;
+  }
+}
+
+@media #{map-get($display-breakpoints, 'sm-and-down')} {
+  .home-container {
+    padding: 12px;
+  }
+
   .button-link {
+    margin: -32px auto 32px auto;
     width: 240px;
   }
 
   .tournament-title.text-h1 {
-    font-size: 5rem !important;
+    font-size: 3rem !important;
   }
 }
 </style>

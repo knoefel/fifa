@@ -149,9 +149,13 @@ export default {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .tournament-info-container {
+    height: 100vh;
+  }
 }
 
-@media #{map-get($display-breakpoints, 'xs-only')} {
+@media #{map-get($display-breakpoints, 'sm-and-down')} {
   .theme--light.v-list-item .v-list-item {
     &__title {
       font-size: 0.8rem;
