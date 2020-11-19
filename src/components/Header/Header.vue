@@ -6,7 +6,7 @@
       </v-col>
     </v-row>
     <v-row>
-      <v-col class="pa-0">
+      <v-col v-if="false" class="pa-0">
         <HeaderDetails :tournament="tournament" />
       </v-col>
     </v-row>

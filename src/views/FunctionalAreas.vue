@@ -5,7 +5,7 @@
         <v-row no-gutters class="pa-5" align="center">
           <v-col class="pb-3 pb-md-0 d-flex justify-space-between align-center" cols="12" md="6">
             <h3 class="font-weight-regular text-h5 table-title text-center text-sm-left">Functional Areas</h3>
-            <v-icon color="primary" v-if="$vuetify.breakpoint.xsOnly" class="create-icon ml-2" @click="create"
+            <v-icon color="primary" v-if="$vuetify.breakpoint.smAndDown" class="create-icon ml-2" @click="create"
               >mdi-plus-circle-outline</v-icon
             >
           </v-col>
@@ -16,13 +16,15 @@
               single-line
               filled
               hide-details
+              solo
+              flat
               dense
-              class="search-field pr-sm-3 pb-3 pb-sm-0 mx-1 mx-sm-0"
+              class="search-field pr-md-3 pb-3 pb-sm-0"
             >
               <template v-slot:append> <v-icon color="primary">mdi-magnify</v-icon> </template>
             </v-text-field>
             <v-btn
-              v-if="$vuetify.breakpoint.smAndUp"
+              v-if="$vuetify.breakpoint.mdAndUp"
               class="create-btn text-none"
               color="primary"
               outlined
@@ -66,7 +68,7 @@ export default {
     },
 
     onEditItem(item) {
-      this.$router.push({ path: `/functional-areas/${item.id}` });
+      this.$router.push({ path: `/functional-areas/edit/${item.id}` });
     },
 
     async onDeleteItem(item) {
@@ -75,7 +77,7 @@ export default {
       this.refreshItems();
     },
     create() {
-      this.$router.push({ path: "/functional-areas/add", exact: true });
+      this.$router.push({ path: "/functional-areas/add" });
     },
   },
 };
@@ -97,10 +99,8 @@ $search-field-background-color: #f3f6f9;
 .search-field {
   .v-input__slot {
     background-color: $search-field-background-color !important;
+    border-radius: 0;
 
-    &:before {
-      border: none !important;
-    }
   }
 }
 </style>

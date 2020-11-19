@@ -1,12 +1,16 @@
 <template>
   <v-dialog v-model="show" max-width="500px">
     <v-card>
-      <v-card-title class="text-h6">Are you sure you want to delete this item?</v-card-title>
-      <v-card-actions class="align-end">
-        <v-spacer></v-spacer>
-        <v-btn color="blue darken-1" text @click="close">Cancel</v-btn>
-        <v-btn color="blue darken-1" text @click="confirm">OK</v-btn>
-        <v-spacer></v-spacer>
+      <v-card-title class="title pa-5 text-h6 font-weight-regular">Are you sure you want to delete this item?</v-card-title>
+      <v-card-actions>
+        <v-row no-gutters class="pa-1 justify-end">
+          <v-col class="flex-sm-grow-0">
+            <v-btn :block="$vuetify.breakpoint.xsOnly" color="primary" outlined @click="close">Cancel</v-btn>
+          </v-col>
+          <v-col class="flex-sm-grow-0 ml-2 ml-sm-4">
+            <v-btn :block="$vuetify.breakpoint.xsOnly" color="red" text @click="confirm">OK</v-btn>
+          </v-col>
+        </v-row>
       </v-card-actions>
     </v-card>
   </v-dialog>
@@ -38,3 +42,9 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.title {
+  word-break: normal;
+}
+</style>

@@ -1,29 +1,38 @@
 <template>
   <div class="functional-area">
     <v-container>
-      <v-card class="my-5">
-        <v-row no-gutters class="pa-5" align="center">
-          <v-col class="pb-3 pb-md-0" cols="12" md="6">
-            <h3 class="font-weight-regular text-h5 table-title text-center text-md-left">
-              {{ title }}
-            </h3>
-          </v-col>
-          <v-col cols="12" md="6" class="d-flex flex-wrap flex-column flex-md-nowrap flex-md-row justify-end">
-            <v-btn class="mr-md-3 mb-3 mb-md-0" outlined @click="onCancel" color="primary">
-              Cancel
-            </v-btn>
-            <v-btn :disabled="!isValid" @click="onSave" color="primary">
-              Save
-            </v-btn>
-          </v-col>
-        </v-row>
+      <v-card flat class="mt-5 mb-3">
+        <h3 class="pa-5 font-weight-regular text-h5">
+          {{ title }}
+        </h3>
       </v-card>
-      <v-card class="mb-5">
+      <v-card flat class="mb-5">
         <v-row no-gutters class="pa-5">
           <v-col md="6">
             <FunctionalAreaForm :functionalArea="functionalArea" @onFormChanged="onFormChanged" />
           </v-col>
         </v-row>
+
+        <v-card-actions>
+          <v-row no-gutters class="pa-4">
+            <v-col class="flex-sm-grow-0 mr-2 mr-sm-4">
+              <v-btn
+                :block="$vuetify.breakpoint.xsOnly"
+                class="text-none"
+                :disabled="!isValid"
+                @click="onSave"
+                color="primary"
+              >
+                Save
+              </v-btn>
+            </v-col>
+            <v-col class="flex-sm-grow-0">
+              <v-btn :block="$vuetify.breakpoint.xsOnly" class="text-none" outlined @click="onCancel" color="primary">
+                Cancel
+              </v-btn>
+            </v-col>
+          </v-row>
+        </v-card-actions>
       </v-card>
     </v-container>
   </div>
@@ -39,17 +48,22 @@ const getName = prop("name");
 export default {
   components: { FunctionalAreaForm },
   name: "FunctionalArea",
-  data: () => ({
-    functionalArea: null,
-    formValues: null,
-    isValid: true,
-  }),
+  data() {
+    return {
+      functionalArea: null,
+      formValues: null,
+      isValid: true,
+      isEditMode: !!this.$route.params.id,
+    };
+  },
   async mounted() {
-    this.functionalArea = await functionalAreasService.getById(this.$route.params.id);
+    if (this.isEditMode) {
+      this.functionalArea = await functionalAreasService.getById(this.$route.params.id);
+    }
   },
   computed: {
     title() {
-      return getName(this.functionalArea);
+      return this.isEditMode ? getName(this.functionalArea) : "Add Functional Area";
     },
   },
 
@@ -62,13 +76,31 @@ export default {
       this.$router.push({ path: "/functional-areas" });
     },
     async onSave() {
-      await functionalAreasService.update({
-        ...this.functionalArea,
-        ...this.formValues,
-      });
+      if (this.isEditMode) {
+        await functionalAreasService.update({
+          ...this.functionalArea,
+          ...this.formValues,
+        });
+      } else {
+        await functionalAreasService.create({
+          ...this.formValues,
+        });
+      }
 
       this.$router.push({ path: "/functional-areas" });
     },
   },
 };
 </script>
+
+<style lang="scss">
+@import "@/styles/variables.scss";
+
+.v-card {
+  box-shadow: $box-shadow !important;
+}
+
+.v-card__actions {
+  border-top: 1px solid #F0F0F0;
+}
+</style>

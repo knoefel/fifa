@@ -1,6 +1,6 @@
 <template>
   <v-form ref="form" v-model="isValid">
-    <v-text-field v-model="formValues.name" label="Name" :rules="[rules.required]" outlined></v-text-field>
+    <v-text-field v-model="formValues.name" label="Name" :rules="[rules.required]" filled></v-text-field>
 
     <v-select
       v-model="formValues.typeId"
@@ -9,14 +9,14 @@
       item-value="id"
       label="Type"
       :rules="[rules.required]"
-      outlined
+      filled
     ></v-select>
 
     <v-text-field
       v-model="formValues.refNumber"
       label="Reference Number"
       :rules="[rules.required]"
-      outlined
+      filled
     ></v-text-field>
 
     <v-select
@@ -24,9 +24,7 @@
       :items="functionalAreaParentEvents"
       label="Parent Event"
       multiple
-      chips
-      deletable-chips
-      outlined
+      filled
     ></v-select>
   </v-form>
 </template>
