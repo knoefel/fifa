@@ -4,7 +4,7 @@
       <div class="square">
         <v-sheet class="square__content" rounded="lg">
           <svg viewBox="0 0 40 40">
-            <text x="2" y="31">{{ value }}</text>
+            <text x="2" y="31" class="white--text">{{ value }}</text>
           </svg>
         </v-sheet>
       </div>
@@ -69,6 +69,7 @@ export default {
 .countdown {
   display: flex;
   justify-content: center;
+  background: $blue-background;
 
   &__box {
     flex-basis: calc(25% - 10px);
@@ -101,5 +102,9 @@ export default {
     display: block;
     padding-top: 100%;
   }
+}
+
+.theme--light.v-sheet {
+  background: $blue-background;
 }
 </style>

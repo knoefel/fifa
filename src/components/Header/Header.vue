@@ -1,13 +1,16 @@
 <template>
-  <v-row no-gutters class="header flex-grow-0">
-    <v-col cols="12" lg="7">
-      <HeaderTitle :title="tournament.title" :trophy="tournament.trophy" />
-    </v-col>
-
-    <v-col cols="12" lg="5">
-      <HeaderDetails :tournament="tournament" />
-    </v-col>
-  </v-row>
+  <div>
+    <v-row no-gutters class="header flex-grow-0">
+      <v-col>
+        <HeaderTitle />
+      </v-col>
+    </v-row>
+    <v-row>
+      <v-col class="pa-0">
+        <HeaderDetails :tournament="tournament" />
+      </v-col>
+    </v-row>
+  </div>
 </template>
 
 <script>

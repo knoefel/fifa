@@ -1,14 +1,16 @@
 <template>
-  <v-container class="header-title white--text pa-0" :style="containerStyles" fluid>
+  <v-container class="header-title" fluid>
     <v-row class="ma-0">
-      <v-col class="flex-grow-0">
-        <v-avatar size="50">
-          <v-img :src="require(`@/assets/trophies/${trophy}`)"></v-img>
-        </v-avatar>
+      <v-col class="col-1 d-flex align-center">
+        <v-icon class="icon">mdi-menu</v-icon>
+      </v-col>
+      <v-col class="flex-grow-0 d-flex align-center">
+        <v-img class="logo" :src="require(`@/assets/fifa-logo.svg`)"></v-img>
       </v-col>
 
-      <v-col class="d-flex align-center text-h5">
-        <span>{{ title }}</span>
+      <v-col class="d-flex align-center justify-end">
+        <v-icon class="icon">mdi-account-outline</v-icon>
+        <v-icon class="icon">mdi-magnify</v-icon>
       </v-col>
     </v-row>
   </v-container>
@@ -17,27 +19,33 @@
 <script>
 export default {
   name: "HeaderTitle",
-  props: {
-    title: {
-      type: String,
-    },
-    trophy: {
-      type: String,
-    },
-  },
-  computed: {
-    containerStyles: () => ({
-      height: "100%",
-      minHeight: "10rem",
-      backgroundImage: `url(${require("@/assets/header-title-background.png")})`,
-      backgroundSize: "cover",
-    }),
-  },
 };
 </script>
 
 <style lang="scss" scoped>
 .header-title > .row {
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.header-title {
+  min-height: 64px;
+  padding-left: 64px;
+  padding-right: 64px;
+}
+
+.logo {
+  max-width: 128px;
+  max-height: 23px;
+}
+
+.icon {
+  max-height: 16px;
+  max-width: 16px;
+  margin-left: 15px;
+  margin-right: 15px;
+
+  &:before {
+    color: $icon-color;
+  }
 }
 </style>
