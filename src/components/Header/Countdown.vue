@@ -111,7 +111,7 @@ export default {
   }
 }
 
-@media #{map-get($display-breakpoints, 'xs-only')} {
+@media #{map-get($display-breakpoints, 'sm-and-down')} {
   .countdown .v-list-item__content {
     max-width: 60px;
   }
