@@ -1,36 +1,45 @@
 <template>
   <div class="functional-areas">
     <v-container>
-      <v-card class="my-5">
+      <v-card class="header mt-5 mb-3" flat>
         <v-row no-gutters class="pa-5" align="center">
-          <v-col class="pb-3 pb-md-0" cols="12" md="6">
-            <h3 class="font-weight-regular text-h5 table-title text-center text-sm-left">
-              Functional Areas
-            </h3>
+          <v-col class="pb-3 pb-md-0 d-flex justify-space-between align-center" cols="12" md="6">
+            <h3 class="font-weight-regular text-h5 table-title text-center text-sm-left">Functional Areas</h3>
+            <v-icon color="primary" v-if="$vuetify.breakpoint.xsOnly" class="create-icon ml-2" @click="create"
+              >mdi-plus-circle-outline</v-icon
+            >
           </v-col>
           <v-col cols="12" md="6" class="d-flex flex-wrap flex-sm-nowrap flex-column flex-sm-row">
             <v-text-field
               v-model="search"
-              prepend-inner-icon="mdi-magnify"
               label="Search"
               single-line
-              outlined
+              filled
               hide-details
               dense
-              class="pr-sm-3 pb-3 pb-sm-0"
-            ></v-text-field>
-            <v-btn class="create-btn" color="primary" to="/functional-areas/add" exact> Create </v-btn>
+              class="search-field pr-sm-3 pb-3 pb-sm-0 mx-1 mx-sm-0"
+            >
+              <template v-slot:append> <v-icon color="primary">mdi-magnify</v-icon> </template>
+            </v-text-field>
+            <v-btn
+              v-if="$vuetify.breakpoint.smAndUp"
+              class="create-btn text-none"
+              color="primary"
+              outlined
+              to="/functional-areas/add"
+              exact
+            >
+              Create
+            </v-btn>
           </v-col>
         </v-row>
       </v-card>
-      <v-card class="mb-5">
-        <FunctionalAreasTable
-          :functionalAreas="functionalAreas"
-          :search="search"
-          @editItem="onEditItem"
-          @deleteItem="onDeleteItem"
-        />
-      </v-card>
+      <FunctionalAreasTable
+        :functionalAreas="functionalAreas"
+        :search="search"
+        @editItem="onEditItem"
+        @deleteItem="onDeleteItem"
+      />
     </v-container>
   </div>
 </template>
@@ -65,14 +74,33 @@ export default {
 
       this.refreshItems();
     },
+    create() {
+      this.$router.push({ path: "/functional-areas/add", exact: true });
+    },
   },
 };
 </script>
 
-<style lang="scss" scoped>
+<style lang="scss">
 @import "@/styles/variables.scss";
+
+$search-field-background-color: #f3f6f9;
+
+.header {
+  box-shadow: $box-shadow !important;
+}
 
 .create-btn {
   min-height: 40px;
+}
+
+.search-field {
+  .v-input__slot {
+    background-color: $search-field-background-color !important;
+
+    &:before {
+      border: none !important;
+    }
+  }
 }
 </style>

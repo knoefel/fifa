@@ -1,5 +1,12 @@
 @import "~vuetify/src/styles/styles.sass";
 
+$box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.1);
+$main-color: #326295;
+
+// Vuetify Variables Overrides
+
+$body-font-family: "Open Sans", sans-serif;
+
 $grid-breakpoints: map-merge(
   $grid-breakpoints,
   (
@@ -27,3 +34,9 @@ $display-breakpoints: map-deep-merge(
     "xl-only": "only screen and (min-width: #{map-get($grid-breakpoints, "xl")})",
   )
 );
+
+$card-border-radius: 0;
+$data-table-border-radius: 0;
+$btn-border-radius: 0;
+$text-field-border-radius: 0;
+
