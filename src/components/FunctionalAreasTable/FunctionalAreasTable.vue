@@ -104,8 +104,8 @@ export default {
 <style lang="scss">
 @import "@/styles/variables.scss";
 
-$tr-hover-background: #F0F3F9;
-$delete-icon-color: #D91313;
+$tr-hover-background: #f0f3f9;
+$delete-icon-color: #d91313;
 
 .functional-areas-table {
   background-color: transparent !important;

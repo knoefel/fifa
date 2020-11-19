@@ -5,17 +5,11 @@
         <HeaderTitle />
       </v-col>
     </v-row>
-    <v-row>
-      <v-col v-if="false" class="pa-0">
-        <HeaderDetails :tournament="tournament" />
-      </v-col>
-    </v-row>
   </div>
 </template>
 
 <script>
 import HeaderTitle from "./HeaderTitle";
-import HeaderDetails from "./HeaderDetails";
 
 export default {
   name: "Header",
@@ -26,7 +20,6 @@ export default {
   },
   components: {
     HeaderTitle,
-    HeaderDetails,
   },
 };
 </script>

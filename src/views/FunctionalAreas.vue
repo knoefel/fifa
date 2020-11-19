@@ -100,7 +100,6 @@ $search-field-background-color: #f3f6f9;
   .v-input__slot {
     background-color: $search-field-background-color !important;
     border-radius: 0;
-
   }
 }
 </style>

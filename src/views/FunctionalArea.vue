@@ -101,6 +101,6 @@ export default {
 }
 
 .v-card__actions {
-  border-top: 1px solid #F0F0F0;
+  border-top: 1px solid #f0f0f0;
 }
 </style>
