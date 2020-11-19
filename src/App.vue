@@ -8,8 +8,8 @@
 </template>
 
 <script>
-import Header from "./components/Header/Header";
 import { tournament } from "./mocks/tournament";
+import Header from "@/components/Header/Header";
 
 export default {
   name: "App",
@@ -26,4 +26,8 @@ export default {
 
 <style lang="scss">
 @import "@/styles/overrides";
+
+.v-main__wrap {
+  overflow: hidden;
+}
 </style>

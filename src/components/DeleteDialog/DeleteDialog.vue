@@ -1,7 +1,9 @@
 <template>
   <v-dialog v-model="show" max-width="500px">
     <v-card>
-      <v-card-title class="title pa-5 text-h6 font-weight-regular">Are you sure you want to delete this item?</v-card-title>
+      <v-card-title class="title pa-5 text-h6 font-weight-regular"
+        >Are you sure you want to delete this item?</v-card-title
+      >
       <v-card-actions>
         <v-row no-gutters class="pa-1 justify-end">
           <v-col class="flex-sm-grow-0">
