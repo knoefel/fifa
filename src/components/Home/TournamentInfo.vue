@@ -53,7 +53,7 @@
 <script>
 import formatWithOptions from "date-fns/fp/formatWithOptions";
 import { de, enGB as en } from "date-fns/esm/locale";
-import Countdown from "@/components/Header/Countdown";
+import Countdown from "@/components/Home/Countdown";
 
 const LOCALES = { de, en };
 
@@ -79,6 +79,8 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "@/styles/variables.scss";
+$yellow-text: #FECB2F;
+
 
 .tournament-info {
   height: 100%;
@@ -117,7 +119,7 @@ export default {
 
 .theme--light.v-sheet.v-list {
   height: 100%;
-  background: linear-gradient(104.99deg, $blue-background 18.7%, rgba(0, 135, 230, 0) 63.19%);
+  background: linear-gradient(168.99deg, #0087E4 25.7%, rgba(0, 135, 230, 0) 90.19%);
   mix-blend-mode: lighten;
 }
 

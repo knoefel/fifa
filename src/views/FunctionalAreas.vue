@@ -1,49 +1,44 @@
 <template>
-  <div class="functional-areas">
-    <v-container>
-      <v-card class="header mt-5 mb-3" flat>
-        <v-row no-gutters class="pa-5" align="center">
-          <v-col class="pb-3 pb-md-0 d-flex justify-space-between align-center" cols="12" md="6">
-            <h3 class="font-weight-regular text-h5 table-title text-center text-sm-left">Functional Areas</h3>
-            <v-icon color="primary" v-if="$vuetify.breakpoint.smAndDown" class="create-icon ml-2" @click="create"
-              >mdi-plus-circle-outline</v-icon
-            >
-          </v-col>
-          <v-col cols="12" md="6" class="d-flex flex-wrap flex-sm-nowrap flex-column flex-sm-row">
-            <v-text-field
-              v-model="search"
-              label="Search"
-              single-line
-              filled
-              hide-details
-              solo
-              flat
-              dense
-              class="search-field pr-md-3 pb-3 pb-sm-0"
-            >
-              <template v-slot:append> <v-icon color="primary">mdi-magnify</v-icon> </template>
-            </v-text-field>
-            <v-btn
-              v-if="$vuetify.breakpoint.mdAndUp"
-              class="create-btn text-none"
-              color="primary"
-              outlined
-              to="/functional-areas/add"
-              exact
-            >
-              Create
-            </v-btn>
-          </v-col>
-        </v-row>
-      </v-card>
-      <FunctionalAreasTable
-        :functionalAreas="functionalAreas"
-        :search="search"
-        @editItem="onEditItem"
-        @deleteItem="onDeleteItem"
-      />
-    </v-container>
-  </div>
+  <v-container class="functional-areas pt-5 pt-sm-10">
+    <v-card class="header mt-5 mb-3" flat>
+      <v-row no-gutters class="pa-5" align="center">
+        <v-col class="pb-3 pb-md-0 d-flex justify-space-between align-center" cols="12" md="6">
+          <h3 class="font-weight-regular text-h5 table-title text-center text-sm-left">Functional Areas</h3>
+          <v-icon color="primary" class="create-icon ml-2 d-md-none" @click="create">mdi-plus-circle-outline</v-icon>
+        </v-col>
+        <v-col cols="12" md="6" class="d-flex flex-wrap flex-sm-nowrap flex-column flex-sm-row">
+          <v-text-field
+            v-model="search"
+            label="Search"
+            single-line
+            filled
+            hide-details
+            solo
+            flat
+            dense
+            class="search-field pr-md-3"
+          >
+            <template v-slot:append> <v-icon color="primary">mdi-magnify</v-icon> </template>
+          </v-text-field>
+          <v-btn
+            class="create-btn text-none d-none d-md-inline-flex"
+            color="primary"
+            outlined
+            to="/functional-areas/add"
+            exact
+          >
+            Create
+          </v-btn>
+        </v-col>
+      </v-row>
+    </v-card>
+    <FunctionalAreasTable
+      :functionalAreas="functionalAreas"
+      :search="search"
+      @editItem="onEditItem"
+      @deleteItem="onDeleteItem"
+    />
+  </v-container>
 </template>
 
 <script>

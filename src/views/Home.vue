@@ -23,8 +23,8 @@
 </template>
 
 <script>
-import TournamentInfo from "@/components/Header/TournamentInfo";
-import HomeNav from "@/components/Header/HomeNav";
+import TournamentInfo from "@/components/Home/TournamentInfo";
+import HomeNav from "@/components/Home/HomeNav";
 import { tournament } from "@/mocks/tournament";
 
 export default {

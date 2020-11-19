@@ -1,25 +1,27 @@
 <template>
-  <div>
-    <v-row no-gutters class="header flex-grow-0">
-      <v-col>
-        <HeaderTitle />
-      </v-col>
-    </v-row>
-  </div>
+  <v-row class="header align-center justify-space-between justify-lg-end flex-grow-0 px-6 px-lg-12" no-gutters>
+    <v-col class="flex-grow-0">
+      <v-icon class="icon">mdi-menu</v-icon>
+    </v-col>
+    <v-col class="flex-grow-0 ml-lg-6 mr-lg-auto">
+      <v-img class="logo" :src="require(`@/assets/fifa-logo.svg`)"></v-img>
+    </v-col>
+
+    <v-col class="flex-grow-0">
+      <v-icon class="icon">mdi-account-outline</v-icon>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
-import HeaderTitle from "./HeaderTitle";
-
 export default {
   name: "Header",
-  props: {
-    tournament: {
-      type: Object,
-    },
-  },
-  components: {
-    HeaderTitle,
-  },
 };
 </script>
+
+<style lang="scss" scoped>
+.header {
+  height: 64px;
+  min-width: 256px;
+}
+</style>
