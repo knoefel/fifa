@@ -1,5 +1,5 @@
 export const tournament = {
-  title: "World Cup 2022",
+  title: "FIFA World Cup Qatar 2022™",
   trophy: "world-cup.png",
   start: new Date(2022, 10, 20),
   end: new Date(2022, 11, 17),

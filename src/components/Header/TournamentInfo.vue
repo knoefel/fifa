@@ -1,12 +1,13 @@
 <template>
   <div class="tournament-info">
+    <Countdown :end="tournament.start" />
     <v-list>
       <v-list-item>
         <v-list-item-content>
           <v-list-item-title>Tournament dates</v-list-item-title>
           <v-list-item-subtitle
-            >{{ formatDate(tournament.start) }} - {{ formatDate(tournament.end) }}</v-list-item-subtitle
-          >
+            >{{ formatDate(tournament.start) }} - {{ formatDate(tournament.end) }}
+          </v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
 
@@ -35,11 +36,13 @@
 <script>
 import formatWithOptions from "date-fns/fp/formatWithOptions";
 import { de, enGB as en } from "date-fns/esm/locale";
+import Countdown from "@/components/Header/Countdown";
 
 const LOCALES = { de, en };
 
 export default {
   name: "TournamentInfo",
+  components: { Countdown },
   props: {
     tournament: {
       type: Object,
@@ -47,7 +50,7 @@ export default {
   },
   computed: {
     i18nDate() {
-      return formatWithOptions({ locale: LOCALES[this.$vuetify.lang.current] }, "P");
+      return formatWithOptions({ locale: LOCALES[this.$vuetify.lang.current] }, "LLL dd, yyyy");
     },
   },
   methods: {
@@ -62,7 +65,7 @@ export default {
 
 $body2: map-get($headings, "body-2");
 
-.v-list-item {
+.theme--light.v-list-item .v-list-item {
   align-items: flex-start;
 
   &__title {
@@ -73,7 +76,17 @@ $body2: map-get($headings, "body-2");
 
   &__content {
     align-self: flex-start;
+    color: #ffffff;
   }
+
+  &__subtitle {
+    color: #ffffff;
+  }
+}
+
+.theme--light.v-sheet.v-list {
+  height: 537px;
+  background: linear-gradient(104.99deg, $blue-background 18.7%, rgba(0, 135, 230, 0) 63.19%);
 }
 
 @media #{map-get($display-breakpoints, 'md-and-down')} {
