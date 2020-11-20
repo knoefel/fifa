@@ -104,7 +104,6 @@ body {
     margin-left: 80px;
 
     .text-h4 {
-      font-size: 1.75rem !important;
       padding-left: 10px;
       padding-right: 10px;
     }
