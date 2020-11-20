@@ -2,7 +2,7 @@
   <div class="tournament-info">
     <Countdown :end="tournament.start" />
     <v-list class="px-6 py-4">
-      <v-list-item class="date-list">
+      <v-list-item>
         <v-list-item-content>
           <v-row no-gutters>
             <v-col class="flex-grow-0 pt-2 pr-8">
@@ -85,18 +85,4 @@ $yellow-text: #FECB2F;
   background: linear-gradient(to bottom, #0087E4 19.7%, rgba(0, 135, 230, 0) 120%);
 }
 
-@media #{map-get($display-breakpoints, 'sm-and-down')} {
-}
-
-@media #{map-get($display-breakpoints, 'md-and-down')} {
-}
-
-@media #{map-get($display-breakpoints, 'xs-only')} {
-  .v-list {
-    display: block;
-  }
-}
-
-@media #{map-get($display-breakpoints, 'xl-only')} {
-}
 </style>
