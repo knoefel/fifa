@@ -15,7 +15,7 @@
     <v-text-field
       v-model="formValues.refNumber"
       label="Reference Number"
-      :rules="[rules.required]"
+      :rules="[rules.required, rules.numeric]"
       filled
     ></v-text-field>
 
@@ -39,6 +39,8 @@ const defaultValues = {
   parentEventIds: [],
 };
 
+const isNumeric = value => value.match(/^(([0-9]*)|(([0-9]*)\.([0-9]*)))$/);
+
 export default {
   name: "FunctionalAreaForm",
   data: () => ({
@@ -46,7 +48,10 @@ export default {
     functionalAreaParentEvents,
     formValues: defaultValues,
     isValid: false,
-    rules: { required: value => !!value || "Required" },
+    rules: {
+      required: value => !!value || "Required",
+      numeric: value => (value && !!isNumeric(String(value))) || "Please enter a numeric value",
+    },
   }),
   props: { functionalArea: { type: Object, default: () => defaultValues } },
   watch: {
@@ -69,9 +74,14 @@ export default {
       await this.$nextTick();
 
       const isValid = this.$refs.form.validate();
-      const formValues = this.formValues;
 
-      this.$emit("onFormChanged", { formValues, isValid });
+      this.$emit("onFormChanged", {
+        formValues: {
+          ...this.formValues,
+          refNumber: Number(this.formValues.refNumber),
+        },
+        isValid,
+      });
     },
   },
 };

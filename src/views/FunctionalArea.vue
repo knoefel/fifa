@@ -4,12 +4,12 @@
       <v-icon left> mdi-chevron-left </v-icon>
       Back To Functional Areas
     </v-btn>
-    <v-card flat class="my-3">
+    <v-card class="my-3">
       <h3 class="pa-5 font-weight-regular text-h5">
         {{ title }}
       </h3>
     </v-card>
-    <v-card flat class="mb-5">
+    <v-card class="mb-5">
       <v-row no-gutters class="pa-5">
         <v-col md="6">
           <FunctionalAreaForm :functionalArea="functionalArea" @onFormChanged="onFormChanged" />
@@ -19,7 +19,7 @@
       <v-card-actions>
         <v-row no-gutters class="pa-4">
           <v-col class="flex-sm-grow-0 mr-3">
-            <v-btn block class="text-none" :disabled="!isValid" @click="onSave" color="primary"> Save </v-btn>
+            <v-btn block depressed class="text-none" :disabled="!isValid" @click="onSave" color="primary"> Save </v-btn>
           </v-col>
           <v-col class="flex-sm-grow-0">
             <v-btn block class="text-none" outlined @click="onCancel" color="primary"> Cancel </v-btn>
@@ -61,7 +61,7 @@ export default {
 
   methods: {
     goBack() {
-      this.$router.push({path: '/functional-areas'})
+      this.$router.push({ path: "/functional-areas" });
     },
     onFormChanged({ formValues, isValid }) {
       this.formValues = { ...formValues };

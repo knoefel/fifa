@@ -1,6 +1,6 @@
 <template>
   <v-container class="functional-areas pt-5 pt-sm-10">
-    <v-card class="header mt-5 mb-3" flat>
+    <v-card class="header mt-5 mb-3">
       <v-row no-gutters class="pa-5" align="center">
         <v-col class="pb-3 pb-md-0 d-flex justify-space-between align-center" cols="12" md="6">
           <h3 class="font-weight-regular text-h5 table-title text-center text-sm-left">Functional Areas</h3>

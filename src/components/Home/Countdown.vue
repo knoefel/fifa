@@ -81,7 +81,7 @@ export default {
         position: absolute;
         height: 50%;
         width: 1px;
-        background: radial-gradient(at left, #ffffff, transparent);
+        background: radial-gradient(at left, white, transparent);
       }
     }
   }
