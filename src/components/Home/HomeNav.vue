@@ -2,7 +2,7 @@
   <v-container class="home-nav white--text pb-0" fluid>
     <v-row no-gutters class="flex-nowrap">
       <v-col class="flex-grow-0 mr-3 mx-md-3">
-        <v-img class="trophy" :src="require(`@/assets/trophies/trophy.svg`)"></v-img>
+        <v-img class="trophy" :src="require(`@/assets/trophies/${tournament.trophy}`)"></v-img>
       </v-col>
       <v-col class="details">
         <v-row no-gutters class="flex-column">
