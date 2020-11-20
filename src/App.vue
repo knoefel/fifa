@@ -27,4 +27,10 @@ export default {
   font-family: "Qatar2022";
   src: url("assets/fonts/Qatar2022Bold.otf");
 }
+:root {
+  --body-overflow: hidden;
+}
+body {
+  overflow: var(--body-overflow);
+}
 </style>

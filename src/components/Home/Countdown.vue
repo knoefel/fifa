@@ -65,8 +65,9 @@ export default {
 .countdown {
   display: flex;
   justify-content: center;
-  background: $blue-background;
+  // background: $blue-background;
   color: white;
+  margin-left: 40px;
 
   &__box {
     padding: 15px;
@@ -91,9 +92,22 @@ export default {
   position: relative;
 }
 
+body {
+  overflow: hidden;
+}
+
 @media #{map-get($display-breakpoints, 'md-and-down')} {
 }
 
 @media #{map-get($display-breakpoints, 'sm-and-down')} {
+  .countdown {
+    margin-left: 80px;
+
+    .text-h4 {
+      font-size: 1.75rem !important;
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
 }
 </style>
