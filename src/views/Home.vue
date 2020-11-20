@@ -42,10 +42,6 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/styles/variables.scss";
-
-$yellow: #FECB2F;
-
 .home {
   height: 100%;
   background-image: url("../assets/home-background.jpg");
@@ -55,15 +51,6 @@ $yellow: #FECB2F;
 
   .title {
     font-family: "Qatar2022" !important;
-  }
-}
-
-.my-button {
-  transform-origin: bottom right;
-  background: linear-gradient(93.61deg, #093697 0%, $blue-background 100%);
-
-  & .v-icon {
-    color: $yellow !important;
   }
 }
 </style>
