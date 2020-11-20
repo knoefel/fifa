@@ -9,8 +9,10 @@
             <stop offset="60%" stop-color="#0087E4" stop-opacity="0.3" />
           </linearGradient>
         </defs>
-        <path d="M 85 454 L 211 0 L 1305.4 0 L 1305.4 454 L 100 454 Z" fill="url(#svg-countdown-path)"></path>
-        <path d="M 211 0 L 1305.4 0 L 1305.4 90 L 186.5 90 L 211 0 Z" fill="#0087E4"></path>
+          <path class="d-sm-none" d="M 35 454 L 161 0 L 1305.4 0 L 1305.4 454 L 50 454 Z" fill="url(#svg-countdown-path)"></path>
+          <path class="d-sm-none" d="M 161 0 L 1305.4 0 L 1305.4 90 L 136.5 90 L 161 0 Z" fill="#0087E4"></path>
+          <path class="d-none d-sm-block" d="M 65 454 L 191 0 L 1305.4 0 L 1305.4 454 L 80 454 Z" fill="url(#svg-countdown-path)"></path>
+          <path class="d-none d-sm-block" d="M 191 0 L 1305.4 0 L 1305.4 90 L 166.5 90 L 191 0 Z" fill="#0087E4"></path>
       </svg>
     </div>
     <Countdown :end="tournament.start" />
@@ -42,7 +44,9 @@
       </v-list-item>
       <v-list-item class="tournament-info__item">
         <v-list-item-content>
-          <v-list-item-subtitle class="text-h6 white--text">{{ tournament.numberOfStadiums }} Stadiums</v-list-item-subtitle>
+          <v-list-item-subtitle class="text-h6 white--text"
+            >{{ tournament.numberOfStadiums }} Stadiums</v-list-item-subtitle
+          >
           <v-list-item-title class="text-subtitle-2">Number of stadiums</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
@@ -120,7 +124,6 @@ $yellow-text: #FECB2F;
 .v-list {
   height: 100%;
   background: transparent;
-  // background: linear-gradient(to bottom, #0087E4 19.7%, rgba(0, 135, 230, 0) 120%);
 }
 
 @media #{map-get($display-breakpoints, 'sm-and-down')} {
@@ -128,5 +131,4 @@ $yellow-text: #FECB2F;
     margin-left: 20px;
   }
 }
-
 </style>

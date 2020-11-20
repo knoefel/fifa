@@ -1,10 +1,10 @@
 <template>
   <div class="countdown">
-    <div class="countdown__box text-h4 text-lg-h3" v-for="[label, value] in duration" :key="label">
-      <span class="font-weight-bold">
+    <div class="countdown__box" v-for="[label, value] in duration" :key="label">
+      <span class="font-weight-bold text-h6 text-sm-h5 text-lg-h3">
         {{ value }}
       </span>
-      <div class="text-caption text-center text-uppercase">
+      <div class="label text-caption text-center text-uppercase">
         {{ label }}
       </div>
     </div>
@@ -65,7 +65,6 @@ export default {
 .countdown {
   display: flex;
   justify-content: center;
-  // background: $blue-background;
   color: white;
   margin-left: 40px;
 
@@ -88,15 +87,10 @@ export default {
   }
 }
 
-.square {
-  position: relative;
-}
-
-body {
-  overflow: hidden;
-}
-
-@media #{map-get($display-breakpoints, 'md-and-down')} {
+@media #{map-get($display-breakpoints, 'xs-only')} {
+  .label {
+    font-size: 0.6rem !important;
+  }
 }
 
 @media #{map-get($display-breakpoints, 'sm-and-down')} {

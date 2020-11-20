@@ -7,7 +7,7 @@
       <v-col class="details">
         <v-row no-gutters class="flex-column">
           <v-col cols="12" class="text-subtitle-1 text-md-h5 font-weight-bold">
-            <span>{{ tournament.title }}</span>
+            <span class="title">{{ tournament.title }}</span>
           </v-col>
           <v-col cols="12" class="text-caption text-md-subtitle-1 font-weight-bold">
             <span>{{ formatDate(tournament.start) }} - {{ formatDate(tournament.end) }}</span>
@@ -55,6 +55,10 @@ export default {
 <style lang="scss">
 .home-nav {
   background: linear-gradient(185.42deg, #9a0e35 46.64%, #2c000f 142.67%);
+}
+
+.title {
+  font-family: "Qatar2022" !important;
 }
 
 .trophy {
