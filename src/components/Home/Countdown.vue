@@ -1,19 +1,13 @@
 <template>
   <div class="countdown">
-    <v-container>
-      <v-row class="justify-center">
-        <v-list v-for="[label, value] in duration" :key="label">
-          <v-list-item-content>
-            <v-list-item-title class="countdown__value white--text align-center">
-              {{ value }} <span v-if="label !== 'hours'">:</span>
-            </v-list-item-title>
-            <v-list-item-subtitle class="countdown__label white--text align-center">
-              {{ label }}
-            </v-list-item-subtitle>
-          </v-list-item-content>
-        </v-list>
-      </v-row>
-    </v-container>
+    <div class="countdown__box text-h4 text-lg-h3" v-for="[label, value] in duration" :key="label">
+      <span class="font-weight-bold">
+        {{ value }}
+      </span>
+      <div class="text-caption text-center text-uppercase">
+        {{ label }}
+      </div>
+    </div>
   </div>
 </template>
 
@@ -69,59 +63,37 @@ export default {
 
 <style lang="scss" scoped>
 .countdown {
+  display: flex;
+  justify-content: center;
   background: $blue-background;
+  color: white;
 
-  & .v-list-item__content {
-    transform: skewX(16deg);
-  }
+  &__box {
+    padding: 15px;
+    position: relative;
+    text-align: center;
 
-  & .countdown {
-    &__value {
-      font-size: 3rem;
-    }
-
-    &__label {
-      font-size: 1rem;
-      text-transform: uppercase;
-      color: rgba(255, 255, 255, 0.4);
+    &:not(:first-child) {
+      &:before {
+        left: 0;
+        content: "";
+        display: block;
+        position: absolute;
+        height: 50%;
+        width: 1px;
+        background: radial-gradient(at left, #ffffff, transparent);
+      }
     }
   }
 }
 
-.theme--light.v-sheet {
-  background: $blue-background;
+.square {
+  position: relative;
 }
 
 @media #{map-get($display-breakpoints, 'md-and-down')} {
-  .countdown {
-    .v-list-item__content {
-      transform: skewX(5deg);
-      max-width: 80px;
-    }
-
-    .countdown {
-      &__value {
-        font-size: 2rem;
-      }
-
-      &__label {
-        font-size: 0.8rem;
-      }
-    }
-  }
 }
 
 @media #{map-get($display-breakpoints, 'sm-and-down')} {
-  .countdown .v-list-item__content {
-    max-width: 60px;
-  }
-
-  .countdown .countdown-value {
-    font-size: 1.5rem;
-  }
-
-  .countdown .countdown-label {
-    font-size: 0.7rem;
-  }
 }
 </style>

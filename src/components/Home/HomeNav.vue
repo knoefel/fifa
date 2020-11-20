@@ -12,33 +12,13 @@
           <v-col cols="12" class="text-caption text-md-subtitle-1 font-weight-bold">
             <span>{{ formatDate(tournament.start) }} - {{ formatDate(tournament.end) }}</span>
           </v-col>
-          <v-col cols="12" class="d-none d-lg-block flex-grow-0">
-            <v-tabs background-color="transparent" dark show-arrows hide-slider>
-              <v-tab> QUALIFIERS </v-tab>
-              <v-tab> NEWS </v-tab>
-              <v-tab> PHOTOS </v-tab>
-              <v-tab> VIDEOS </v-tab>
-              <v-tab> MATCHES </v-tab>
-              <v-tab> TICKETING </v-tab>
-              <v-tab> DESTINATION </v-tab>
-              <v-tab> ORGANISATION </v-tab>
-            </v-tabs>
-          </v-col>
+          <v-col cols="12" class="d-none d-lg-block flex-grow-0"> <Nav /> </v-col>
         </v-row>
       </v-col>
     </v-row>
     <v-row no-gutters class="d-lg-none justify-center justify-md-start">
       <v-col class="flex-grow-0">
-        <v-tabs background-color="transparent" dark show-arrows hide-slider>
-          <v-tab> QUALIFIERS </v-tab>
-          <v-tab> NEWS </v-tab>
-          <v-tab> PHOTOS </v-tab>
-          <v-tab> VIDEOS </v-tab>
-          <v-tab> MATCHES </v-tab>
-          <v-tab> TICKETING </v-tab>
-          <v-tab> DESTINATION </v-tab>
-          <v-tab> ORGANISATION </v-tab>
-        </v-tabs>
+        <Nav />
       </v-col>
     </v-row>
   </v-container>
@@ -47,12 +27,13 @@
 <script>
 import formatWithOptions from "date-fns/fp/formatWithOptions";
 import { de, enGB as en } from "date-fns/esm/locale";
+import Nav from "@/components/Nav/Nav";
 
 const LOCALES = { de, en };
 
 export default {
   name: "HeaderDetails",
-  components: {},
+  components: { Nav },
   props: {
     tournament: {
       type: Object,
@@ -96,12 +77,6 @@ export default {
 @media #{map-get($display-breakpoints, 'lg-and-up')} {
   .v-tab:first-child {
     padding-left: 0 !important;
-  }
-}
-
-@media #{map-get($display-breakpoints, 'sm-and-down')} {
-  .v-tab {
-    font-size: 12px !important;
   }
 }
 </style>

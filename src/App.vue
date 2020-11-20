@@ -23,9 +23,8 @@ export default {
 </script>
 
 <style lang="scss">
-@import "@/styles/overrides";
-
-.v-main__wrap {
-  overflow: hidden;
+@font-face {
+  font-family: "Qatar2022";
+  src: url("assets/fonts/Qatar2022Bold.otf");
 }
 </style>

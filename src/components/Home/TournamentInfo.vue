@@ -1,51 +1,44 @@
 <template>
   <div class="tournament-info">
     <Countdown :end="tournament.start" />
-    <v-list>
-      <v-container>
-        <v-row>
-          <v-list-item class="date-list">
-            <v-list-item-content>
-              <span class="date-title">Start</span>
-              <v-list-item-subtitle class="start-date">
+    <v-list class="px-6 py-4">
+      <v-list-item class="date-list">
+        <v-list-item-content>
+          <v-row no-gutters>
+            <v-col class="flex-grow-0 pt-2 pr-8">
+              <span class="text-uppercase text-caption white--text">Start</span>
+              <v-list-item-subtitle class="start-date text-h6 white--text">
                 {{ formatDate(tournament.start) }}
               </v-list-item-subtitle>
-              <v-list-item-title v-if="$vuetify.breakpoint.lgAndUp">Tournament dates</v-list-item-title>
-            </v-list-item-content>
-            <v-list-item-content>
-              <span class="date-title">End</span>
-              <v-list-item-subtitle>
+            </v-col>
+            <v-col class="pt-2">
+              <span class="text-uppercase text-caption white--text">End</span>
+              <v-list-item-subtitle class="text-h6 white--text">
                 {{ formatDate(tournament.end) }}
               </v-list-item-subtitle>
-              <v-list-item-title v-if="$vuetify.breakpoint.mdAndDown">Tournament dates</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-row>
-        <v-row>
-          <v-list-item>
-            <v-list-item-content>
-              <v-list-item-subtitle>{{ tournament.numberOfTeams }}</v-list-item-subtitle>
-              <v-list-item-title>Number of teams</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-row>
-        <v-row>
-          <v-list-item>
-            <v-list-item-content>
-              <v-list-item-subtitle>{{ tournament.numberOfStadiums }}</v-list-item-subtitle>
-              <v-list-item-title>Number of stadiums</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-row>
-        <v-row>
-          <v-list-item>
-            <v-list-item-content>
-              <v-list-item-subtitle>{{ tournament.currentChampion }}</v-list-item-subtitle>
-              <v-list-item-title>Current champion of the tournament</v-list-item-title>
-            </v-list-item-content>
-          </v-list-item>
-        </v-row>
-      </v-container>
+            </v-col>
+          </v-row>
+          <v-list-item-title class="text-subtitle-2">Tournament dates</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-subtitle class="text-h6 white--text">{{ tournament.numberOfTeams }} Teams</v-list-item-subtitle>
+          <v-list-item-title class="text-subtitle-2">Number of teams</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-subtitle class="text-h6 white--text">{{ tournament.numberOfStadiums }} Stadiums</v-list-item-subtitle>
+          <v-list-item-title class="text-subtitle-2">Number of stadiums</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+      <v-list-item>
+        <v-list-item-content>
+          <v-list-item-subtitle class="text-h6 white--text">{{ tournament.currentChampion }}</v-list-item-subtitle>
+          <v-list-item-title class="text-subtitle-2">Current champion of the tournament</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
     </v-list>
   </div>
 </template>
@@ -79,65 +72,23 @@ export default {
 </script>
 <style lang="scss" scoped>
 @import "@/styles/variables.scss";
+
 $yellow-text: #FECB2F;
 
+.v-list-item__title {
+  white-space: initial !important;
+  color: $yellow-text !important;
+}
 
-.tournament-info {
+.v-list {
   height: 100%;
+  background: linear-gradient(to bottom, #0087E4 19.7%, rgba(0, 135, 230, 0) 120%);
 }
 
-.theme--light.v-list-item .v-list-item {
-  align-items: flex-start;
-
-  &__title {
-    white-space: initial;
-    text-overflow: initial;
-    font-size: 1rem;
-    color: $yellow-text;
-  }
-
-  &__content {
-    align-self: flex-start;
-    color: #ffffff;
-    transform: skewX(16deg);
-    padding-left: 32px;
-  }
-
-  &__subtitle {
-    color: #ffffff;
-    font-size: 3rem;
-  }
-}
-
-.start-date {
-  min-width: 350px;
-}
-
-.date-title {
-  text-transform: uppercase;
-}
-
-.theme--light.v-sheet.v-list {
-  height: 100%;
-  background: linear-gradient(168.99deg, #0087E4 25.7%, rgba(0, 135, 230, 0) 90.19%);
-  mix-blend-mode: lighten;
+@media #{map-get($display-breakpoints, 'sm-and-down')} {
 }
 
 @media #{map-get($display-breakpoints, 'md-and-down')} {
-  .date-list {
-    display: grid;
-    margin-bottom: -40px;
-  }
-
-  .theme--light.v-list-item .v-list-item {
-    &__content {
-      transform: skewX(5deg);
-    }
-
-    &__subtitle {
-      font-size: 2rem;
-    }
-  }
 }
 
 @media #{map-get($display-breakpoints, 'xs-only')} {
@@ -147,25 +98,5 @@ $yellow-text: #FECB2F;
 }
 
 @media #{map-get($display-breakpoints, 'xl-only')} {
-  .v-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .tournament-info-container {
-    height: 100vh;
-  }
-}
-
-@media #{map-get($display-breakpoints, 'sm-and-down')} {
-  .theme--light.v-list-item .v-list-item {
-    &__title {
-      font-size: 0.8rem;
-    }
-
-    &__subtitle {
-      font-size: 1.5rem;
-    }
-  }
 }
 </style>
